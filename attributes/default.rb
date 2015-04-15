@@ -10,3 +10,10 @@ default['mongodb']['config']['logappend'] = 'true'
 default['mongodb']['config']['pidfilepath'] = '/data/shard1/db/shard1.pid'
 default['mongodb']['config']['dbpath'] = '/data/shard1/db'
 default['mongodb']['config']['fork'] = 'true'
+
+# set for mongo gem - new version breaks setting replica set and other things
+# that require the use of a mongo connection.
+default['mongodb']['ruby_gems'] = {
+  :mongo => '1.12.0',
+  :bson_ext => '1.12.0'
+}
